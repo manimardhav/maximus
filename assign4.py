@@ -1,3 +1,4 @@
+'''Write a Python program to calculate the sum of all even numbers between 1 and a given positive integer n'''
 def sum_of_even_numbers(n):
     sum_even = 0
     for i in range(2, n + 1, 2):
