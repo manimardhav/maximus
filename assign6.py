@@ -1,23 +1,56 @@
-#Day-5 assignment question-1
+'''Question:
+Using the Pandas library, perform the following tasks:
 
-n = int(input("Enter a positive integer: "))
+1. Create a DataFrame from the following data:
+   | Name     | Age | Department   | Salary  |
+   |----------|-----|--------------|---------|
+   | John     | 28  | HR           | 45000   |
+   | Alice    | 34  | IT           | 60000   |
+   | Bob      | 23  | Marketing    | 35000   |
+   | Diana    | 29  | Finance      | 50000   |'''
 
-for i in range(1, n + 1):
-    print(i)
+import pandas as pd
 
-sum = 0
-i = 1
-while i <= n:
-    sum += i
-    i += 1
+data = {
+    'Name': ['John', 'Alice', 'Bob', 'Diana'],
+    'Age': [28, 34, 23, 29],
+    'Department': ['HR', 'IT', 'Marketing', 'Finance'],
+    'Salary': [45000, 60000, 35000, 50000]
+}
 
-print("Sum:", sum)
+df = pd.DataFrame(data)
+print(df.head(2))
 
-#Day-5 assignment question-2
+df['Bonus'] = df['Salary'] * 0.10
+print(df)
 
-def calculate_square(n):
-    return n * n
+average_salary = df['Salary'].mean()
+print(average_salary)
 
-n = int(input("Enter a positive integer: "))
-result = calculate_square(n)
-print("The square of", n, "is", result)
+filtered_df = df[df['Age'] > 25]
+print(filtered_df)
+
+'''2. Write code to:
+   - Display the first 2 rows of the DataFrame.
+   - Add a new column named `Bonus` where the bonus is 10% of the salary.
+   - Calculate the average salary of employees in the DataFrame.
+   - Filter and display employees who are older than 25.'''
+
+import pandas as pd
+data = {
+    'Name': ['Alice', 'Bob', 'Charlie', 'David', 'Eva'],
+    'Age': [23, 30, 22, 28, 35],
+    'Salary': [70000, 80000, 75000, 50000, 90000]
+}
+
+df = pd.DataFrame(data)
+
+print(df.head(2))
+
+df['Bonus'] = df['Salary'] * 0.1
+
+average_salary = df['Salary'].mean()
+
+filtered_employees = df[df['Age'] > 25]
+print(filtered_employees)
+
